@@ -7,7 +7,7 @@ export class ServicioController {
   constructor(private readonly servicioService: ServicioService) {}
 
   @Get(':id')
-  getOneSong(@Param('id') id: string){
+  getOneSong(@Param('id') id: number){
     return this.servicioService.getOne(id);
   }
 
@@ -22,12 +22,12 @@ export class ServicioController {
   }
 
   @Patch(':id')
-  patchUsers(@Param('id') id: string){
-    return this.servicioService.patchSongs(id);
+  patchUsers(@Param('id') id: number, @Body() createSongDto: CreateSongDto){
+    return this.servicioService.patchSongs(id, createSongDto);
   }
 
   @Delete(':id')
-  deleteUsers(@Param('id') id: string){
+  deleteUsers(@Param('id') id: number){
     return this.servicioService.deleteSongs(id);
   }
 

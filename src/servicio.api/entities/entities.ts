@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
 
-@Entity()
+@Entity({ name: 'songs', schema: 'public' })
 export class Songs{
     @PrimaryGeneratedColumn()
     id : number
@@ -19,13 +19,11 @@ export class Songs{
     
     @Column({
         nullable: false,
-	    default: "Valor por defecto"
     })
-    duraction : string
+    duraction : number
     
     @Column({
         nullable: false,
-	    default: "Valor por defecto"
     })
-    year : string
+    year : number
 }
